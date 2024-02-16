@@ -1,0 +1,15 @@
+# ninja log v5
+7	914	7297299862121537	CMakeFiles/LeetCode.dir/LeetCode.cpp.obj	170113ee8821074a
+918	1392	7297299866721485	LeetCode.exe	891c170dbeb5d5dd
+5	853	7297303344259413	CMakeFiles/LeetCode.dir/LeetCode.cpp.obj	170113ee8821074a
+16	926	7297303583176075	CMakeFiles/LeetCode.dir/Greedy.cpp.obj	235aec1388e2dfa7
+3	956	7297304953967390	CMakeFiles/LeetCode.dir/LeetCode.cpp.obj	170113ee8821074a
+24	946	7297305591686003	CMakeFiles/LeetCode.dir/Greedy.cpp.obj	235aec1388e2dfa7
+14	972	7297305591956017	CMakeFiles/LeetCode.dir/LeetCode.cpp.obj	170113ee8821074a
+972	1194	7297305593526240	LeetCode.exe	d4aa9dd5a09a1649
+14	1269	7297475787840676	CMakeFiles/LeetCode.dir/Greedy.cpp.obj	235aec1388e2dfa7
+3	1286	7297475788010605	CMakeFiles/LeetCode.dir/LeetCode.cpp.obj	170113ee8821074a
+1286	1562	7297475790220572	LeetCode.exe	d4aa9dd5a09a1649
+17	1243	7297488969383725	CMakeFiles/LeetCode.dir/LeetCode.cpp.obj	170113ee8821074a
+27	1315	7297488970083645	CMakeFiles/LeetCode.dir/Greedy.cpp.obj	235aec1388e2dfa7
+1315	1610	7297488972473679	LeetCode.exe	d4aa9dd5a09a1649
