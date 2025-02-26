@@ -12,7 +12,7 @@ endif()
 project ("LeetCode")
 
 # Add source to this project's executable.
-add_executable (LeetCode "LeetCode.cpp" "LeetCode.h" "Greedy.cpp" "Greedy.h" "Common.h" "Hashmap.cpp" "Hashmap.h" "Daily.h" "Daily.cpp")
+add_executable (LeetCode "LeetCode.cpp" "LeetCode.h" "Greedy.cpp" "Greedy.h" "Common.h" "Hashmap.cpp" "Hashmap.h" "Daily.h" "Daily.cpp" "LinkedList.h" "Arrays.h" "Arrays.cpp" "Graphs.h" "Graphs.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET LeetCode PROPERTY CXX_STANDARD 20)

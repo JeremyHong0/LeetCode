@@ -10,4 +10,7 @@
 #include <unordered_set>
 #include <set>
 #include <queue>
+#include <stack>
+
+typedef std::string string;
 

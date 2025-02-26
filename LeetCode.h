@@ -9,4 +9,6 @@
 #include "Greedy.h"
 #include "Hashmap.h"
 #include "Daily.h"
+#include "Graphs.h"
+#include "Arrays.h"
 
