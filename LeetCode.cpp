@@ -10,8 +10,10 @@ int main()
 	DailyProblems dp;
 
 	Arrays array;
-	std::vector<int> vec = { 1,2,2,1,1,0 };
+	std::vector<int> vec = { 7,4,3,9,1,8,5,2,6 };
+	array.getAverages(vec, 3);
 	array.applyOperations(vec);
+	array.waysToSplitArray(vec);
 
 	string s = "pwwkew";
 	array.lengthOfLongestSubstring(s);

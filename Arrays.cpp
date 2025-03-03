@@ -2,7 +2,21 @@
 
 int Arrays::waysToSplitArray(std::vector<int>& nums)
 {
-    return 0;
+    int n = nums.size(), count = 0;
+    std::vector<int> prefixSum = { nums[0] };
+
+    for (int i = 1; i < n; ++i)
+    {
+        prefixSum.push_back(prefixSum.back() + nums[i]);
+    }
+
+    for (int i = 0; i < n; ++i)
+    {
+        if (prefixSum[i] >= prefixSum[n - 1] - prefixSum[i])
+            ++count;
+    }
+
+    return count;
 }
 
 void Arrays::moveZeroes(std::vector<int>& nums)
@@ -75,4 +89,66 @@ int Arrays::lengthOfLongestSubstring(string s)
     }
 
     return maxLen;
+}
+
+std::vector<int> Arrays::pivotArray(std::vector<int>& nums, int pivot)
+{
+	std::vector<int> left;
+	std::deque<int> right;
+
+    for(int n : nums)
+    {
+		if (n < pivot)
+			left.push_back(n);
+		else if (n == pivot)
+			right.push_front(n);
+        else
+			right.push_back(n);
+    }
+
+	std::vector<int> res;
+	for (int n : left)
+	{
+		res.push_back(n);
+	}
+
+	for (int n : right)
+	{
+		res.push_back(n);
+	}
+
+    return res;
+}
+
+std::vector<int> Arrays::getAverages(std::vector<int>& nums, int k)
+{
+    int n = nums.size();
+    std::vector<int64_t> prefixSum(n);
+    prefixSum[0] = nums[0];
+
+    for (int i = 1; i < n; ++i)
+    {
+        prefixSum[i] = prefixSum[i - 1] + nums[i];
+    }
+    std::vector<int> res(n);
+    for (int i = 0; i < n; ++i)
+    {
+        // invalid left side
+        if (i < k)
+        {
+            res[i] = -1;
+        }
+        // valid part
+        else if (k + i < n)
+        {
+            res[i] = (prefixSum[k + i] - prefixSum[i - k] + nums[i - k]) / (2 * k + 1);
+        }
+        // invalid right side
+        else if (k + i >= n)
+        {
+            res[i] = -1;
+        }
+    }
+
+    return res;
 }
