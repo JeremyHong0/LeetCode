@@ -8,4 +8,5 @@ public:
 
 	void moveZeroes(std::vector<int>& nums);
 	std::vector<int> applyOperations(std::vector<int>& nums);
+	int lengthOfLongestSubstring(string s);
 };

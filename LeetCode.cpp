@@ -13,6 +13,9 @@ int main()
 	std::vector<int> vec = { 1,2,2,1,1,0 };
 	array.applyOperations(vec);
 
+	string s = "pwwkew";
+	array.lengthOfLongestSubstring(s);
+
 	dp.sortedSquares(vec);
 
 	Hashmap Hashmap;

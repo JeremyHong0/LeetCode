@@ -56,3 +56,23 @@ std::vector<int> Arrays::applyOperations(std::vector<int>& nums)
     //for(int i = 0;)
     return nums;
 }
+
+int Arrays::lengthOfLongestSubstring(string s)
+{
+	std::unordered_set<char> set;
+    int left = 0;
+    int maxLen = 0;
+    for (int i = 0; i < s.size(); ++i)
+    {
+        while (set.find(s[i]) != set.end())
+        {
+            set.erase(s[left]);
+            ++left;
+        }
+        set.insert(s[i]);
+
+        maxLen = std::max(maxLen, (i - left + 1));
+    }
+
+    return maxLen;
+}
