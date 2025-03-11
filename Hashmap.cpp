@@ -21,3 +21,22 @@ int Hashmap::findJudge(int n, std::vector<std::vector<int>>& trust)
 
     return -1;
 }
+
+int Hashmap::numberOfSubarrays(std::vector<int>& nums, int k)
+{
+    int currOddNums = 0, answer = 0;
+	std::unordered_map<int, int> oddNums;
+    oddNums[0] = 1;
+
+    for(int i : nums)
+    {
+	    if(i % 2 == 1)
+	    {
+			currOddNums++;
+	    }
+        answer += oddNums[currOddNums - k];
+        oddNums[currOddNums]++;
+    }
+
+    return answer;
+}

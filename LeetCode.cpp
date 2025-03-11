@@ -10,7 +10,8 @@ int main()
 	DailyProblems dp;
 
 	Arrays array;
-	std::vector<int> vec = { 7,4,3,9,1,8,5,2,6 };
+	std::vector<int> vec = { 2,2,2,1,2,2,1,2,2,2 };
+	array.reverseOnlyLetters("a-bC-dEf-ghIj");
 	array.getAverages(vec, 3);
 	array.applyOperations(vec);
 	array.waysToSplitArray(vec);
@@ -21,6 +22,7 @@ int main()
 	dp.sortedSquares(vec);
 
 	Hashmap Hashmap;
+	Hashmap.numberOfSubarrays(vec, 2);
 
 	std::vector<std::vector<int>> trust = { {1, 2, 2, 1},
 		{3, 1, 2},{1, 3, 2},{2, 4},{3, 1, 2},{1, 3, 1, 1} };

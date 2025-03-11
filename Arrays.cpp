@@ -132,7 +132,7 @@ std::vector<int> Arrays::getAverages(std::vector<int>& nums, int k)
     }
     std::vector<int> res(n);
     for (int i = 0; i < n; ++i)
-    {
+{
         // invalid left side
         if (i < k)
         {
@@ -151,4 +151,76 @@ std::vector<int> Arrays::getAverages(std::vector<int>& nums, int k)
     }
 
     return res;
+}
+
+int Arrays::numSubarrayProductLessThanK(std::vector<int>& nums, int k)
+{
+    int sum = 0;
+    int left = 0, curr = 1;
+
+    for(int i = 0; i < nums.size(); ++i)
+    {
+        curr *= nums[i];
+
+        while(curr >= k)
+        {
+            curr /= nums[left];
+            ++left;
+        }
+
+        sum += (i - left + 1);
+    }
+
+    return sum;
+}
+
+string Arrays::reverseOnlyLetters(string s)
+{
+    int left = 0, right = s.size() - 1;
+
+    while (left < right)
+    {
+        // swap
+        if (std::isalpha(s[left]) && std::isalpha(s[right]))
+        {
+            char temp = s[right];
+            s[right] = s[left];
+            s[left] = temp;
+            ++left; --right;
+        }
+        else if (!std::isalpha(s[left]))
+        {
+            ++left;
+        }
+        else if (!std::isalpha(s[right]))
+        {
+            --right;
+        }
+    }
+
+    return s;
+}
+
+int Arrays::findMiddleIndex(std::vector<int>& nums)
+{
+	int n = nums.size();
+	int rightSum = 0;
+
+	for (int i = n - 1; i >= 0; --i)
+	{
+		rightSum += nums[i];
+	}
+
+    int leftSum = 0;
+    for(int i = 0; i < n; ++i)
+    {
+		rightSum -= nums[i];
+
+        if (leftSum == rightSum)
+            return i;
+
+		leftSum += nums[i];
+    }
+
+    return -1;
 }

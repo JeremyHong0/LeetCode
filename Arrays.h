@@ -11,4 +11,7 @@ public:
 	int lengthOfLongestSubstring(string s);
 	std::vector<int> pivotArray(std::vector<int>& nums, int pivot);
 	std::vector<int> getAverages(std::vector<int>& nums, int k);
+	int numSubarrayProductLessThanK(std::vector<int>& nums, int k);
+	string reverseOnlyLetters(string s);
+	int findMiddleIndex(std::vector<int>& nums);
 };
