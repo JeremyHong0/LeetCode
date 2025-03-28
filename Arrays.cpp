@@ -224,3 +224,150 @@ int Arrays::findMiddleIndex(std::vector<int>& nums)
 
     return -1;
 }
+
+int Arrays::numberOfSubstrings(string s)
+{
+    int left = 0, count = 0;
+    std::unordered_map<char, int> freq;
+
+    for(int i = 0; i < s.size(); ++i)
+    {
+        freq[s[i]]++;
+
+        while(freq.size() >= 3)
+        {
+            count += s.size() - i;
+
+            if (--freq[s[left]] == 0)
+                freq.erase(s[left]);
+            ++left;
+        }
+    }
+
+    return count;
+}
+
+long long Arrays::maximumSubarraySum(std::vector<int>& nums, int k)
+{
+    std::unordered_map<int, int> freq;
+    long long maxSum = 0, currSum = 0;
+    for (int i = 0; i < k; ++i)
+    {
+        freq[nums[i]]++;
+        currSum += nums[i];
+    }
+    if (freq.size() == k)
+        maxSum = std::max(maxSum, currSum);
+
+    for (int i = k; i < nums.size(); ++i)
+    {
+        currSum += nums[i] - nums[i - k];
+        freq[nums[i]]++;
+        if (--freq[nums[i - k]] == 0)
+            freq.erase(nums[i - k]);
+
+        if (freq.size() == k)
+            maxSum = std::max(maxSum, currSum);
+    }
+
+    return maxSum;
+}
+
+std::vector<int> Arrays::decrypt(std::vector<int>& code, int k)
+{
+    int n = code.size();
+    std::vector<int> answer(n, 0);
+
+    if (k == 0)
+        return answer;
+    bool bFlag;
+    if (k < 0)
+        bFlag = false;
+    else
+        bFlag = true;
+
+    int loop = abs(k);
+    for (int i = 0; i < n; ++i)
+    {
+        int j;
+        if(bFlag)
+        {
+            j = i + 1;
+        }
+        else
+        {
+            j = i - 1;
+        }
+        int sum = 0;
+        int k = 0;
+        while (k < loop)
+        {
+            if(bFlag)
+            {
+                if (j >= n)
+                {
+                    j = 0;
+                }
+                sum += code[j];
+                ++j; ++k;
+            }
+            else
+            {
+                if(j < 0)
+                {
+                    j = n - 1;
+                }
+                sum += code[j];
+                --j; ++k;
+            }
+        }
+
+        answer[i] = sum;
+    }
+
+    return answer;
+}
+
+int Arrays::maximumLengthSubstring(string s)
+{
+    std::unordered_map<char, int> freq;
+    int left = 0;
+    int maxLen = INT_MIN;
+    for (int i = 0; i < s.size(); ++i)
+    {
+        char currChar = s[i];
+        ++freq[currChar];
+        while (freq[currChar] > 2)
+        {
+            if (--freq[s[left]] == 0)
+                freq.erase(s[left]);
+            ++left;
+        }
+        maxLen = std::max(maxLen, (i - left + 1));
+    }
+
+    return maxLen;
+}
+
+int Arrays::countDays(int days, std::vector<std::vector<int>>& meetings)
+{
+    int count = 0, n = meetings.size(), latestEnd = 0;
+	std::sort(meetings.begin(), meetings.end(), [](const std::vector<int>& a, const std::vector<int>& b)
+		{
+			return a[0] < b[0];
+		});
+    for(int i = 0; i < n; ++i)
+    {
+        int start = meetings[i][0], end = meetings[i][1];
+        if(start > latestEnd + 1)
+        {
+            count += start - latestEnd - 1;
+        }
+
+        latestEnd = std::max(latestEnd, end);
+    }
+
+    count += days - latestEnd;
+
+    return count;
+}

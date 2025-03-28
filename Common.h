@@ -11,6 +11,7 @@
 #include <set>
 #include <queue>
 #include <stack>
+#include <numeric>
 
 typedef std::string string;
 
